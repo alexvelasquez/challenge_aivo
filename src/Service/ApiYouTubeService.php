@@ -3,7 +3,7 @@
 namespace App\Service;
 
 use App\Service\ApiService;
-use App\Entity\Response\SearchYouTube;
+use App\Entity\Response\YouTube;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
@@ -26,7 +26,7 @@ class ApiYouTubeService extends ApiService
         // processing response data;
         $response = [];
         foreach ($searchResponse as $value) {
-            $response[]=new SearchYouTube($value);
+            $response[]=new YouTube($value);
         }
         return $response;
     }
