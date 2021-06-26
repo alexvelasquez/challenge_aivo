@@ -26,6 +26,11 @@ services:
     App\Controller\:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
+    
+    App\Service\ApiYouTubeService:
+        arguments: 
+            $apiUrl: '%env(YTB_API_URL)%'
+            $apiKey: '%env(YTB_SECRET_KEY)%'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
