@@ -27,6 +27,10 @@ services:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
     
+    App\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
+
     App\Service\ApiYouTubeService:
         arguments: 
             $apiUrl: '%env(YTB_API_URL)%'
