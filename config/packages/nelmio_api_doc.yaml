@@ -1,7 +1,7 @@
 nelmio_api_doc:
     documentation:
         servers:
-          - url: http://localhost:8000/api/login_check
+          - url: http://localhost:8000
             description:
         info:
             title: Challenge AIVO
@@ -16,5 +16,3 @@ nelmio_api_doc:
     areas:
         path_patterns: # an array of regexps
             - ^/api(?!/doc$)
-        host_patterns:
-            - ^api\.
