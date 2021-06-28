@@ -79,10 +79,11 @@ Method:GET
 Endpoint: api/youtube
 Authorization: Bearer (token generado anteriormente)
 Params:
-  search(requerido):'john lennon'
+  search(requerido):'aivo'
   max_results(opcional):2
 ```
-![image](https://user-images.githubusercontent.com/45674641/123565224-8c102f00-d792-11eb-91c5-4c9a2e19854a.png)
+![image](https://user-images.githubusercontent.com/45674641/123639104-41280300-d7f6-11eb-95da-ddc3978c4b96.png)
+
 _Documentacion y funcionamiento del servicio_
 
 ```
