@@ -22,13 +22,13 @@ class YouTubeController extends AbstractFOSRestController
 	  /**
      * @Rest\Get("")
      * Returns up to 10 results from a search on youtube given a keyword.
-     * @Rest\QueryParam(name="search")
-     * @Rest\QueryParam(name="max_result")
+     * @Rest\QueryParam(name="search",strict=true, nullable=false)
+     * @Rest\QueryParam(name="max_result",strict=false, nullable=true,default=10)
      * @OA\Response(response=200,description="Returns the videos of a specific search")
      * @OA\Response(response=400,description="Parameter search: This value should not be null.")
      * @OA\Response(response=404,description="Video not found.")
-     * @OA\Parameter(name="search",in="query",description="search keyword",@OA\Schema(type="string"))
-     * @OA\Parameter(name="max_result",in="query",description="maximum number of results by default returns 10",@OA\Schema(type="string"))
+     * @OA\Parameter(name="search",in="query")
+     * @OA\Parameter(name="max_result",in="query")
      * @OA\Tag(name="YouTube")
      * @Security(name="Bearer")
      * @param ParamFetcherInterface $paramFetcher
