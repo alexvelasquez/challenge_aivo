@@ -21,17 +21,25 @@ MYSQL
 _Clonar_
 ```
 git clone https://github.com/alexvelasquez/challenge_aivo.git
-cd  challenge_aivo
+cd challenge_aivo
 ```
 
 _Ejecutar composer install_
 ```
-php -d memory_limit = -1 composer.phar install
+php composer.phar install
+```
+_Crear claves publicas y privadas JWT_
+```
+mkdir config\jwt,
+openssl genrsa -out config/jwt/private.pem 4096,
+openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
 ```
 
-_Configurar variables de entorno_
+_Configurar variables de entorno y creendiciales de base de datos_
 ```
-  Configurar las credenciales de su base de datos en las variables de entorno .env.dev.local y env.test.local
+ cp .env.dev .env.dev.local
+ cp .env.dev .env.test.local
+ configurar las credenciales de su base de datos en las variables de entorno .env.dev.local y env.test.local
 ```
 
 _Crear base de datos y ejecutar migracion para cargar el usuario que cosumirá el servicio_
@@ -50,9 +58,8 @@ php bin/console --env=test doctrine:migrations:execute 20210627152853
 _Iniciar ejecución de servidor local_
 ```
 php bin/console serve:run
-![image](https://user-images.githubusercontent.com/45674641/123556745-5142d280-d763-11eb-9c72-f42f3633c7db.png)
-
 ```
+![image](https://user-images.githubusercontent.com/45674641/123570560-d8fa0280-d79e-11eb-9f77-f901953691fd.png)
 
 ### Consumir servicio 📌
 
@@ -64,10 +71,8 @@ Content Type: multipart/form-data
 Params: 
   username:ws_aivo
   password:ws_aivo_pass
-  
-  ![image](https://user-images.githubusercontent.com/45674641/123557011-d5e22080-d764-11eb-979a-4b771a0812b1.png)
-  
 ```
+![image](https://user-images.githubusercontent.com/45674641/123557011-d5e22080-d764-11eb-979a-4b771a0812b1.png)
 _Funcionamiento de servicio_ 
 ```
 Method:GET
@@ -76,18 +81,15 @@ Authorization: Bearer (token generado anteriormente)
 Params:
   search(requerido):'john lennon'
   max_results(opcional):2
-
-![image](https://user-images.githubusercontent.com/45674641/123565224-8c102f00-d792-11eb-91c5-4c9a2e19854a.png)
-
 ```
+![image](https://user-images.githubusercontent.com/45674641/123565224-8c102f00-d792-11eb-91c5-4c9a2e19854a.png)
 _Documentacion y funcionamiento del servicio_
 
 ```
 Desde /api/doc se podra ver la documentación y probar el servicio de una manera mas interactiva.
-
-![image](https://user-images.githubusercontent.com/45674641/123566623-80266c00-d796-11eb-817c-c36bce58624c.png)
-
 ```
+![image](https://user-images.githubusercontent.com/45674641/123569547-e31b0180-d79c-11eb-9d49-7a34f7f14daa.png)
+
 ### Ejecución de Test Unitarios 📝
 ```
 php ./vendor/bin/phpunit
