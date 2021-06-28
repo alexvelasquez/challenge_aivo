@@ -47,12 +47,12 @@ _Crear base de datos y ejecutar migracion para cargar el usuario que cosumirá e
 DATABASE DEV
 php bin/console --env=dev doctrine:database:create
 php bin/console --env=dev doctrine:schema:update --force
-php bin/console --env=dev doctrine:migrations:execute 20210627152853
+php bin/console --env=dev doctrine:migrations:execute DoctrineMigrations\Version20210628025550
 
 DATABASE TEST
 php bin/console --env=test doctrine:database:create
 php bin/console --env=test doctrine:schema:update --force
-php bin/console --env=test doctrine:migrations:execute 20210627152853
+php bin/console --env=test doctrine:migrations:execute DoctrineMigrations\Version20210628025550
 ```
 
 _Iniciar ejecución de servidor local_
