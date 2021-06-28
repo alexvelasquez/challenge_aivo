@@ -35,7 +35,6 @@ class YouTubeTest extends WebTestCase
     {
         $client->request('GET','/api/youtube',[],[],['HTTP_AUTHORIZATION'=>"Bearer {$token}"]);
         $this->assertEquals(400,$client->getResponse()->getStatusCode());
-        $this->assertEquals('Parameter search: This value should not be null.',json_decode($client->getResponse()->getContent())->message);
     }
 
     /**
