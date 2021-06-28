@@ -2,7 +2,7 @@
 
 namespace App\Entity\Response;
 
-class YouTube
+class Video
 {
     private $publishedAt;
     private $id;
@@ -14,12 +14,11 @@ class YouTube
     public function __construct(array $response)
     {
         $this->publishedAt = $response['snippet']['publishedAt'];
-        $this->id = $response['id']['videoId'];
+        $this->id = $response['id'];
         $this->title = $response['snippet']['title'];
         $this->description = $response['snippet']['description'];
         $this->thumbnail = $response['snippet']['thumbnails']['default']['url'];
-        $this->extra['channelTitle'] = $response['snippet']['channelTitle'];
-        $this->extra['liveBroadcastContent'] = $response['snippet']['liveBroadcastContent'];
+        $this->extra = $response['statistics'];
     }
 
     /**
